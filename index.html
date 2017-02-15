@@ -1,0 +1,227 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Elevator Control API",
+    "version": "1.0.0",
+    "title": "Ascenseur",
+    "contact": {
+      "email": "nelz@orionlabs.io"
+    }
+  },
+  "basePath": "/v1",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/welcome": {
+      "get": {
+        "summary": "welcome",
+        "description": "Simple welcome message to verify service is up",
+        "operationId": "welcome",
+        "responses": {
+          "200": {
+            "description": "successful connection",
+            "schema": {
+              "type": "object",
+              "required": [
+                "msg"
+              ],
+              "properties": {
+                "msg": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    },
+    "/floor_count": {
+      "get": {
+        "summary": "Number of stops",
+        "description": "Total number of stops in this elevator",
+        "operationId": "floorCount",
+        "responses": {
+          "200": {
+            "description": "count",
+            "schema": {
+              "type": "object",
+              "required": [
+                "count"
+              ],
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    },
+    "/car/{car_id}/floor/current": {
+      "get": {
+        "summary": "Current Floor",
+        "description": "What floor is the car currently on",
+        "operationId": "currentFloor",
+        "parameters": [
+          {
+            "name": "car_id",
+            "in": "path",
+            "description": "The ID of the car we are investigating",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "floor",
+            "schema": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/floor/{floor_id}/call/{dir}": {
+      "post": {
+        "summary": "Call Car",
+        "description": "Request a car to arrive at this floor, going in the specified direction",
+        "operationId": "callCar",
+        "parameters": [
+          {
+            "name": "floor_id",
+            "in": "path",
+            "description": "The ID of the floor we are requesting a car to",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dir",
+            "in": "path",
+            "description": "Which way you want to go",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "up",
+              "down"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Request for service has been accepted"
+          },
+          "403": {
+            "description": "Illogical request"
+          },
+          "404": {
+            "description": "Floor not found"
+          }
+        }
+      },
+      "get": {
+        "summary": "Car Call Check",
+        "description": "Interrogate whether a car is requested at this floor, going in the specified direction",
+        "operationId": "callCarCheck",
+        "parameters": [
+          {
+            "name": "floor_id",
+            "in": "path",
+            "description": "The ID of the floor we are requesting a car to",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dir",
+            "in": "path",
+            "description": "Which way you want to go",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "up",
+              "down"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current call state",
+            "schema": {
+              "additionalProperties": false,
+              "type": "object",
+              "properties": {
+                "called": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Floor not found"
+          }
+        }
+      }
+    },
+    "/admin/inventory/{pwd}": {
+      "get": {
+        "summary": "List Floor and Car IDs",
+        "description": "Operator Ease-Of-Use: List out Floor and Car identifiers",
+        "operationId": "inventory",
+        "parameters": [
+          {
+            "name": "pwd",
+            "in": "path",
+            "description": "The password is `p4ssw3rd`",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "count",
+            "schema": {
+              "type": "array",
+              "items": {
+                "additionalProperties": false,
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authorized"
+          }
+        }
+      }
+    }
+  }
+}
