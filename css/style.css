@@ -219,6 +219,14 @@ a, a:hover {
   color: rgb(222, 103, 115) !important;
 }
 
+#testimonial a {
+  color: rgb(249, 38, 90);
+}
+
+#testimonial a:hover {
+  color: rgb(224, 152, 172);
+}
+
 /* about section styles
 /* ========================================== */
 #about .container {
@@ -287,8 +295,16 @@ a, a:hover {
   margin-bottom: 20px;
 }
 
-#blog .blog-wrapper h3 a {
+#blog .blog-wrapper {
   color: #000000;
+}
+
+#blog a {
+  color: rgb(46, 25, 38);
+}
+
+#blog a:hover {
+  color: rgb(249, 38, 90);
 }
 
 
