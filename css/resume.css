@@ -3,9 +3,13 @@ body {
   padding: 0;
 }
 
-#huey {
+#resume {
   width: 100%;
   margin-top: 20px;
   object-fit: contain;
   text-align: center;
+}
+
+img {
+  border: 3px solid black;
 }
