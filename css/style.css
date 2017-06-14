@@ -215,7 +215,7 @@ a, a:hover {
   display: inline-block;
 }
 
-#testimonial .greencast-link {
+#testimonial {
   color: rgb(222, 103, 115) !important;
 }
 
@@ -507,3 +507,8 @@ footer a:hover {
     font-size: 9px;
   }
 }
+
+.img-bra {
+  border: 2px solid black;
+}
+
