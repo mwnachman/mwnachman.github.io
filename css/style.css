@@ -17,6 +17,7 @@ body {
 
 html,body {
     width: 100%;
+    min-width: 1000px;
     overflow-x: hidden;
 }
 
@@ -512,3 +513,10 @@ footer a:hover {
   border: 2px solid black;
 }
 
+.img-half-width {
+  width: 100%;
+}
+
+.post-masonry {
+  max-width: 33%;
+}
