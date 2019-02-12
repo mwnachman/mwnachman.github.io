@@ -79,7 +79,7 @@ a, a:hover {
 
 /* All Section styles
 ------------------------------------- */
-#testimonial, #blog, #counter, #contact {
+#testimonial, #about, #projects, #blog, #widgets, #counter, #contact {
    	padding-top: 120px;
   	padding-bottom: 120px;
 }
@@ -230,18 +230,20 @@ a, a:hover {
 
 /* about section styles
 /* ========================================== */
-#about .container {
-  	width: 100%;
-  	padding: 0px;
-  	margin: 0px;
-}
+/*#about .container {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}*/
 
-#about .col-md-6 {
-	padding: 0;
+#about h2 {
+  padding-bottom: 12px;
+  font-size: 32px;
+  text-align: center;
 }
 
 #about .about-des {
-  	padding: 65px;
+  padding: 65px;
 }
 
 #about .about-des h3 {
@@ -263,6 +265,59 @@ a, a:hover {
 }
 
 #about a:hover {
+  color: rgb(224, 152, 172);
+}
+
+/* projects section styles
+/* ========================================== */
+#projects h2, #projects h4 {
+  text-align: center;
+}
+
+#projects h2 {
+  padding-bottom: 12px;
+  font-size: 32px;
+}
+#projects h4 {
+  padding-bottom: 32px;
+}
+
+#projects h3 {
+  margin-top: 0;
+  color: black;
+  padding-bottom: 10px;
+  letter-spacing: 0.9px;
+}
+#projects h5 {
+  color: rgb(222, 103, 115);
+  font-size: 20px;
+}
+#projects .row {
+  margin-bottom: 75px;
+}
+#projects p {
+  padding-top: 10px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+#projects .blog-wrapper {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#projects .blog-wrapper {
+  color: #000000;
+}
+
+#projects a {
+  color: rgb(249, 38, 90);
+}
+
+#projects a:hover {
   color: rgb(224, 152, 172);
 }
 
@@ -308,6 +363,48 @@ a, a:hover {
   color: rgb(249, 38, 90);
 }
 
+
+/* widgets section styles
+/* ========================================== */
+#widgets h2, #widgets h4 {
+  text-align: center;
+}
+
+#widgets h2 {
+  padding-bottom: 12px;
+  font-size: 32px;
+}
+
+#widgets h4 {
+  padding-bottom: 32px;
+  letter-spacing: 0.9px;
+}
+
+#widgets p {
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+#widgets .blog-wrapper {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#widgets .blog-wrapper {
+  color: #000000;
+}
+
+#widgets a {
+  color: rgb(46, 25, 38);
+}
+
+#widgets a:hover {
+  color: rgb(249, 38, 90);
+}
 
 /* Counter section styles
 /* ========================================== */
